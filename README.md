@@ -2,7 +2,7 @@
 #### *Prueba del módulo 6: manejo de eventos y reutilización de componentes*
 >By Sebastián Sánchez
 
-<!-- Pendientes: arreglar estilos básicos y accesibilidad -->
+<!-- Pendientes: selector de severidad, arreglar estilos básicos y accesibilidad -->
 <!-- Whishlist: enchular la sección de citas -->
 
 <strong>Brief</strong>: Un administrador sencillo de citas médicas con clasificación de severidad.

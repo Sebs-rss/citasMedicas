@@ -2,7 +2,14 @@
     <form @submit.prevent="addAppointment">
       <div v-for="field in fields" :key="field.name" class="form-group">
         <label :style="{ color: isFieldEmpty(field.name) ? 'red' : 'black' }">{{ field.label }}</label>
-        <input :type="field.type" v-model="appointment[field.name]" @input="validateForm" />
+        <input v-if="field.type === 'text'" :type="field.type" v-model="appointment[field.name]" @input="validateForm" />
+        <select v-else-if="field.name === 'severity'" v-model="appointment[field.name]">
+          <option value="">Seleccione una opci n</option>
+          <option value="Baja">Baja</option>
+          <option value="Media">Media</option>
+          <option value="Alta">Alta</option>
+        </select>
+        <input v-else :type="field.type" v-model="appointment[field.name]" @input="validateForm" />
       </div>
       <button type="submit" :disabled="!isFormValid">Agregar</button>
     </form>
@@ -23,7 +30,7 @@
           { name: 'patient', label: 'Paciente', type: 'text' },
           { name: 'date', label: 'Fecha', type: 'date' },
           { name: 'time', label: 'Hora', type: 'time' },
-          { name: 'severity', label: 'Gravedad', type: 'text' },
+          { name: 'severity', label: 'Gravedad', type: 'select' },
           { name: 'reason', label: 'Motivo', type: 'text' }
         ]
       };
